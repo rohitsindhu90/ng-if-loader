@@ -13,7 +13,7 @@ Pull request are always welcome and I appreciate any help on this project. This 
 This repo contains a `dev` directory to make it easier to test and debug changes made to the library. Currently, it just is used to test components but in the future I would like this to turn into interactive examples for the docs as well.
 
 ### Steps for Local Development
-* In the root folder run `npm start`. This will watch the `lib` folder for changes and then transpile any changes. Once transpiled, the changes will copied to the `dev` directory and replace the `ng-block-ui` dependency.
+* In the root folder run `npm start`. This will watch the `lib` folder for changes and then transpile any changes. Once transpiled, the changes will copied to the `dev` directory and replace the `ng-if-block-ui` dependency.
 * In a separate terminal run `npm start` in the `dev` directory. This will spin up a server with the dev app. Whenever changes are made to the `dev` or `lib` directory the server will reload.
 
 ## Git

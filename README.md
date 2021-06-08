@@ -2,22 +2,22 @@
 
 A Block UI implementation for Angular
 
-[![npm](https://img.shields.io/npm/v/ng-block-ui.svg)](https://www.npmjs.com/package/ng-block-ui)
-[![npm](https://img.shields.io/npm/dm/ng-block-ui.svg)](https://www.npmjs.com/package/ng-block-ui)
-[![Build Status](https://travis-ci.org/kuuurt13/ng-block-ui.svg?branch=master)](https://travis-ci.org/kuuurt13/ng-block-ui)
+[![npm](https://img.shields.io/npm/v/ng-if-block-ui.svg)](https://www.npmjs.com/package/ng-if-block-ui)
+[![npm](https://img.shields.io/npm/dm/ng-if-block-ui.svg)](https://www.npmjs.com/package/ng-if-block-ui)
+[![Build Status](https://travis-ci.org/rohitsindhu90/ng-if-block-ui.svg?branch=master)](https://travis-ci.org/rohitsindhu90/ng-if-block-ui)
 
 ## Installation
-Add to your project via [npm](https://www.npmjs.com/package/ng-block-ui)
+Add to your project via [npm](https://www.npmjs.com/package/ng-if-block-ui)
 
 ```bash
-npm install ng-block-ui --save
+npm install ng-if-block-ui --save
 ```
 
 Include the `BlockUIModule` in your main app module.
 
 ```js
 // All other imports
-import { BlockUIModule } from 'ng-block-ui';
+import { BlockUIModule } from 'ng-if-block-ui';
 
 @NgModule({
   imports: [
@@ -41,7 +41,7 @@ Once finished call the `stop` method to stop blocking the app.
 import { Component } from '@angular/core';
 
 // Import BlockUI decorator & optional NgBlockUI type
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { BlockUI, NgBlockUI } from 'ng-if-block-ui';
 
 @Component({
   selector: 'app-root',
@@ -307,8 +307,8 @@ Instead of declaring seperate instances with the `@BlockUI()` decorator you can 
 ### [SystemJS Config](docs/systemjs-config.md)
 
 ## Examples
-### BlockUI Component - [Stackblitz](https://stackblitz.com/github/kuuurt13/ng-block-ui/tree/master/examples/default)
-### BlockUI Component Default Message - [Stackblitz](https://stackblitz.com/github/kuuurt13/ng-block-ui/tree/master/examples/default-message)
-### BlockUI Directive - [Stackblitz](https://stackblitz.com/github/kuuurt13/ng-block-ui/tree/master/examples/directive)
-### BlockUI Custom Spinner Styles - [Stackblitz](https://stackblitz.com/github/kuuurt13/ng-block-ui/tree/master/examples/custom-spinner-styles)
-### BlockUI Custom Template - [Stackblitz](https://stackblitz.com/github/kuuurt13/ng-block-ui/tree/master/examples/custom-template)
+### BlockUI Component - [Stackblitz](https://stackblitz.com/github/rohitsindhu90/ng-if-block-ui/tree/master/examples/default)
+### BlockUI Component Default Message - [Stackblitz](https://stackblitz.com/github/rohitsindhu90/ng-if-block-ui/tree/master/examples/default-message)
+### BlockUI Directive - [Stackblitz](https://stackblitz.com/github/rohitsindhu90/ng-if-block-ui/tree/master/examples/directive)
+### BlockUI Custom Spinner Styles - [Stackblitz](https://stackblitz.com/github/rohitsindhu90/ng-if-block-ui/tree/master/examples/custom-spinner-styles)
+### BlockUI Custom Template - [Stackblitz](https://stackblitz.com/github/rohitsindhu90/ng-if-block-ui/tree/master/examples/custom-template)

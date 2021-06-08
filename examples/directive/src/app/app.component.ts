@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { BlockUI, NgBlockUI } from 'ng-if-block-ui';
 
 @Component({
   selector: 'app-root',

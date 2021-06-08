@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { BlockUIService, BLOCKUI_DEFAULT } from 'ng-block-ui';
+import { BlockUIService, BLOCKUI_DEFAULT } from 'ng-if-block-ui';
 import { BlockUIHttpSettings } from './block-ui-http-settings.service';
 
 @Injectable()

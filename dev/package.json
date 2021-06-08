@@ -1,5 +1,5 @@
 {
-  "name": "ng-block-ui-dev",
+  "name": "ng-if-block-ui-dev",
   "version": "1.0.0",
   "description": "Angular (2.x & up) Block UI Demo",
   "main": "src/index.ts",
@@ -8,7 +8,7 @@
   },
   "repository": {},
   "keywords": [],
-  "author": "kuuurt13",
+  "author": "rohitsindhu90",
   "license": "MIT",
   "bugs": {},
   "homepage": "",

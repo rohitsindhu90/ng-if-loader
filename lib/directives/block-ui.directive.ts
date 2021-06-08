@@ -70,7 +70,7 @@ export class BlockUIDirective implements OnInit {
         }
       }
     } catch (error) {
-      console.error('ng-block-ui:', error);
+      console.error('ng-if-block-ui:', error);
     }
   }
 

@@ -26,7 +26,7 @@
     "Block UI",
     "Spinner"
   ],
-  "author": "kuuurt13",
+  "author": "rohitsindhu90",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rohitsindhu90/ng-if-loader/issues"
@@ -43,7 +43,7 @@
     "@angular/platform-browser": "6.0.7",
     "@angular/platform-browser-dynamic": "6.0.7",
     "@angular/router": "6.0.7",
-    "@types/jasmine": "^2.8.9",
+    "@types/jasmine": "2.8.6",
     "babel-polyfill": "^6.23.0",
     "es6-shim": "^0.35.1",
     "generate-changelog": "^1.7.1",
@@ -58,7 +58,7 @@
     "ng-packagr": "^4.7.1",
     "raw-loader": "^0.5.1",
     "reflect-metadata": "^0.1.3",
-    "rxjs": "^6.0.0",
+    "rxjs": "6.0.0",
     "ts-loader": "^0.8.2",
     "tslint": "^3.13.0",
     "tslint-loader": "^2.1.5",
@@ -67,7 +67,8 @@
     "watchman": "^0.1.8",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "@types/node": "6.14.4"
   },
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "ngPackage": {

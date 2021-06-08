@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BlockUIModule } from 'ng-block-ui';
+import { BlockUIModule } from 'ng-if-block-ui';
 
 import { BlockElementComponent } from './block-element.component';
 

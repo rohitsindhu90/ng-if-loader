@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders, InjectionToken } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BlockUIModule, HttpSettings } from 'ng-block-ui';
+import { BlockUIModule, HttpSettings } from 'ng-if-block-ui';
 import { BlockUIHttpSettings } from './block-ui-http-settings.service';
 import { BlockUIInterceptor } from './block-ui-http.interceptor';
 

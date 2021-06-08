@@ -8,8 +8,8 @@ The core `BlockUIModule` should first be imported within the app. Once added, a 
 
 ```ts
 import { HttpClientModule } from '@angular/common/http';
-import { BlockUIModule } from 'ng-block-ui';
-import { BlockUIHttpModule } from 'ng-block-ui/http';
+import { BlockUIModule } from 'ng-if-block-ui';
+import { BlockUIHttpModule } from 'ng-if-block-ui/http';
 
 @NgModule({
   imports: [

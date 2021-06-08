@@ -8,8 +8,8 @@ The core `BlockUIModule` should first be imported within the app. Once added, a 
 
 ```js
 import { RouterModule } from '@angular/router';
-import { BlockUIModule } from 'ng-block-ui';
-import { BlockUIRouterModule } from 'ng-block-ui/router';
+import { BlockUIModule } from 'ng-if-block-ui';
+import { BlockUIRouterModule } from 'ng-if-block-ui/router';
 import { appRoutes } from './app.routes';
 
 @NgModule({
@@ -24,12 +24,12 @@ export class AppModule {}
 ```
 
 ### Add Block UI Route Guard to Routes
-Next, import `BlockUIPreventNavigation` guard from `ng-block-ui/router`. This is the guard that should be added for all routes that you don't want to be navigated away from when Block UI is active.
+Next, import `BlockUIPreventNavigation` guard from `ng-if-block-ui/router`. This is the guard that should be added for all routes that you don't want to be navigated away from when Block UI is active.
 
 #### Imports
 ```js
 import { Routes } from '@angular/router';
-import { BlockUIPreventNavigation } from 'ng-block-ui/router';
+import { BlockUIPreventNavigation } from 'ng-if-block-ui/router';
 // Other Components
 ```
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { BlockUI, NgBlockUI } from 'ng-if-block-ui';
 
 @Component({
   selector: 'landing-page',
@@ -12,7 +12,7 @@ export class LandingPageComponent {
   @BlockUI() blockUI: NgBlockUI;
   user: any = null;
   private timeout: number = 8000;
-  private url: string = 'https://api.github.com/users/kuuurt13';
+  private url: string = 'https://api.github.com/users/rohitsindhu90';
 
   constructor(public http: HttpClient) {}
 

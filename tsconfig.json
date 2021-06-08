@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "ng-block-ui": ["lib"]
+      "ng-if-block-ui": ["lib"]
     },
     "outDir": "dist",
     "target": "es5",

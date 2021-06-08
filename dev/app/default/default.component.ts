@@ -1,5 +1,5 @@
 import { Component, ComponentRef } from '@angular/core';
-import { BlockUI, NgBlockUI, BlockUIService } from 'ng-block-ui';
+import { BlockUI, NgBlockUI, BlockUIService } from 'ng-if-block-ui';
 
 @Component({
   selector: 'default',

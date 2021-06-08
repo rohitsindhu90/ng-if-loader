@@ -73,7 +73,7 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
         this.updateBlockTemplate(this.message);
       }
     } catch (error) {
-      console.error('ng-block-ui:', error);
+      console.error('ng-if-block-ui:', error);
     }
   }
 

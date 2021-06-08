@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild } from '@angular/router';
 
-import { BlockUIService, BLOCKUI_DEFAULT } from 'ng-block-ui';
+import { BlockUIService, BLOCKUI_DEFAULT } from 'ng-if-block-ui';
 
 @Injectable()
 export class BlockUIPreventNavigation implements CanActivate, CanActivateChild {
