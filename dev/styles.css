@@ -1,3 +1,8 @@
+
+:root{
+  --loader-msg-clr:white;
+}
+
 html,
 body {
   background: #32424e;

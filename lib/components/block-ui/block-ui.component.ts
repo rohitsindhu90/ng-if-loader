@@ -14,6 +14,8 @@ import { BlockUIDefaultName } from '../../constants/block-ui-default-name.consta
     <ng-content></ng-content>
     <block-ui-content
       [name]="name"
+      [loader]="loader"
+      [className]="className"
       [message]="message"
       [template]="template"
       [delayStart]="delayStart"
@@ -26,6 +28,13 @@ import { BlockUIDefaultName } from '../../constants/block-ui-default-name.consta
 export class BlockUIComponent implements OnInit {
   @Input() name: string;
   @Input() message: any;
+
+  //Rohit Sindhu
+  //20210608
+  //Added Input Property 
+  @Input() loader:boolean=false;
+  @Input() className: string='';
+
   @Input() delayStart: number;
   @Input() delayStop: number;
   @Input() template: any;

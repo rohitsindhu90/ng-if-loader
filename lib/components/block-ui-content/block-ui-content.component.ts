@@ -39,7 +39,12 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   templateOutlet: ViewContainerRef;
 
   state: any = { startTimeout: null, stopTimeout: null, blockCount: 0 };
-  className: string;
+  //Rohit Sindhu
+  //20210608
+  //Added New Input Property 
+  @Input() loader:boolean=false;
+  @Input() className: string='';
+
   active: boolean = false;
   templateCompRef: ComponentRef<{ message?: any }> | TemplateRef<{}>;
   message: any;
