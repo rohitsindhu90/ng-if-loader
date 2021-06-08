@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
-    "start": "watchman lib 'npm run build:dev && copy -r dist/bundles dev'",
+    "start": "watchman lib 'npm run build:dev && cp -r dist/bundles dev'",
     "build": "ng-packagr -p package.json",
     "build:dev": "tsc -p tsconfig-umd.json && echo 'Build Complete'",
     "release:major": "changelog -M && git add *.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin master && git push origin --tags",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kuuurt13/ng-block-ui.git"
+    "url": "git+https://github.com/rohitsindhu90/ng-if-loader.git"
   },
   "keywords": [
     "Angular",
@@ -29,9 +29,9 @@
   "author": "kuuurt13",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kuuurt13/ng-block-ui/issues"
+    "url": "https://github.com/rohitsindhu90/ng-if-loader/issues"
   },
-  "homepage": "https://github.com/kuuurt13/ng-block-ui#readme",
+  "homepage": "https://github.com/rohitsindhu90/ng-if-loader#readme",
   "dependencies": {},
   "devDependencies": {
     "@angular/common": "6.0.7",
