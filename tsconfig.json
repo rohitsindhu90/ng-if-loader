@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "ng-block-ui": ["lib"]
+    },
+    "outDir": "dist",
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": false,
+    "noEmitHelpers": false,
+    "noImplicitAny": false,
+    "declaration": true,
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "dev",
+    "**/*.spec.ts"
+  ],
+  "types": [
+    "jasmine"
+  ],
+  "files": [
+    "./lib/index.ts",
+    "./router/index.ts",
+    "./http/index.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "dist",
+    "skipTemplateCodegen": true
+  }
+}

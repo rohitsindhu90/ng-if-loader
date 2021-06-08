@@ -1,0 +1,15 @@
+node_modules
+.gitignore
+npm-debug.log
+*.tgz
+.npmignore
+config
+dev
+karma.conf.js
+karma.shim.js
+tslint.json
+webpack.config.json
+vendor.ts
+docs
+.travis.yml
+CONTRIBUTING.md
