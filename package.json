@@ -1,6 +1,6 @@
 {
   "name": "ng-if-block-ui",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Angular Block UI",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
@@ -8,8 +8,8 @@
     "start": "watchman lib 'npm run build:dev && cp -r dist/bundles dev'",
     "build": "ng-packagr -p package.json",
     "build:dev": "tsc -p tsconfig-umd.json && echo 'Build Complete'",
-    "release:major": "changelog -M && git add *.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin master && git push origin --tags",
-    "release:minor": "changelog -m && git add *.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin master && git push origin --tags",
+    "release:major": "changelog -M && git add *.md && git commit -m \"updated CHANGELOG.md\" && npm version major && git push origin master && git push origin --tags",
+    "release:minor": "changelog -m && git add *.md && git commit -m \"updated CHANGELOG.md\" && npm version minor && git push origin master && git push origin --tags",
     "release:patch": "changelog -p && git add *.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin master && git push origin --tags",
     "test": "karma start karma.conf.js",
     "test:watch": "karma start karma.conf.js --singleRun=false"

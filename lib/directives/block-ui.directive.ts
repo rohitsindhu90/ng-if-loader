@@ -20,9 +20,15 @@ export class BlockUIDirective implements OnInit {
   template: any;
   delayStart: any;
   delayStop: any;
+  loader:boolean;
+  customClass: string;
 
   @Input()
   set blockUI(name: any) { this.blockTarget = name; };
+  @Input()
+  set blockUICustomClass(customClass: any) { this.customClass = customClass; };
+  @Input()
+  set blockUILoader(loader: any) { this.loader = loader; };
   @Input()
   set blockUIMessage(message: any) { this.message = message; };
   @Input()
@@ -65,6 +71,9 @@ export class BlockUIDirective implements OnInit {
           if (this.message) this.blockUIComponentRef.instance.defaultMessage = this.message;
           if (this.delayStart) this.blockUIComponentRef.instance.delayStart = this.delayStart;
           if (this.delayStop) this.blockUIComponentRef.instance.delayStop = this.delayStop;
+          if (this.customClass) this.blockUIComponentRef.instance.customClass = this.customClass;
+          if (this.loader) this.blockUIComponentRef.instance.loader = this.loader;
+
           if (this.template || settings.template)
             this.blockUIComponentRef.instance.templateCmp = this.template || settings.template;
         }

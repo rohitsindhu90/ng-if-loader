@@ -43,7 +43,9 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   //20210608
   //Added New Input Property 
   @Input() loader:boolean=false;
-  @Input() className: string='';
+  @Input() customClass:string;
+  
+  className: string;
 
   active: boolean = false;
   templateCompRef: ComponentRef<{ message?: any }> | TemplateRef<{}>;
