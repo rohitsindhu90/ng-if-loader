@@ -17,6 +17,7 @@ import { BlockUIDefaultName } from '../../constants/block-ui-default-name.consta
       [loader]="loader"
       [customClass]="customClass"
       [height]="height"
+      [width]="width"
       [message]="message"
       [template]="template"
       [delayStart]="delayStart"
@@ -34,10 +35,9 @@ export class BlockUIComponent implements OnInit {
   //20210608
   //Added Input Property 
   @Input() loader:boolean=false;
-  
-  
   @Input() customClass: string;
   @Input() height: string;
+  @Input() width:string;
 
   @Input() delayStart: number;
   @Input() delayStop: number;
@@ -53,6 +53,7 @@ export class BlockUIComponent implements OnInit {
     this.template = this.template || this.blockUI.blockUISettings.template;
     this.customClass = this.customClass || this.blockUI.blockUISettings.customClass;
     this.height = this.height || this.blockUI.blockUISettings.height;
+    this.width=this.width||this.blockUI.blockUISettings.width;
     this.loader = this.loader || this.blockUI.blockUISettings.loader;
   }
 }

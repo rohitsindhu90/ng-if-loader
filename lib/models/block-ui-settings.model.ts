@@ -7,5 +7,6 @@ export interface BlockUISettings {
   loader?:boolean;
   customClass?: string;
   height?:string;
+  width?:string;
   template?: ComponentRef<{ message?: any }> | any;
 }

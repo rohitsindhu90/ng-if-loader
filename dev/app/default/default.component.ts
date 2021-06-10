@@ -12,7 +12,7 @@ export class DeafultComponent {
   @BlockUI('block-element') elementBlockUI: NgBlockUI;
 
   defaultMessage: string = 'Default Message...';
-  timeout: number = 200000;
+  timeout: number = 5000;
   blockInstances = ['block-element', 'block-element-2', 'block-element-3'];
 
   constructor(

@@ -45,6 +45,7 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   @Input() loader:boolean=false;
   @Input() customClass:string;
   @Input() height:string;
+  @Input() width:string;
   
   className: string;
 
