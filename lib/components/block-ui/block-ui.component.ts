@@ -16,6 +16,7 @@ import { BlockUIDefaultName } from '../../constants/block-ui-default-name.consta
       [name]="name"
       [loader]="loader"
       [customClass]="customClass"
+      [height]="height"
       [message]="message"
       [template]="template"
       [delayStart]="delayStart"
@@ -36,6 +37,7 @@ export class BlockUIComponent implements OnInit {
   
   
   @Input() customClass: string;
+  @Input() height: string;
 
   @Input() delayStart: number;
   @Input() delayStop: number;
@@ -50,6 +52,7 @@ export class BlockUIComponent implements OnInit {
     this.name = this.name || BlockUIDefaultName;
     this.template = this.template || this.blockUI.blockUISettings.template;
     this.customClass = this.customClass || this.blockUI.blockUISettings.customClass;
+    this.height = this.height || this.blockUI.blockUISettings.height;
     this.loader = this.loader || this.blockUI.blockUISettings.loader;
   }
 }

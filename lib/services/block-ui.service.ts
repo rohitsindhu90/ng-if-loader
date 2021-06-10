@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable ,EventEmitter} from '@angular/core';
 import { BlockUIActions } from '../constants/block-ui-actions.constant';
-import { BlockUIDefaultName } from '../constants/block-ui-default-name.constant';
 import { BlockUIInstanceService } from './block-ui-instance.service';
 
 
@@ -37,6 +36,10 @@ export class BlockUIService {
   */
   unsubscribe(target: string | string[]): void {
     this.dispatch(target, BlockUIActions.UNSUBSCRIBE);
+  }
+
+  actionEvent():EventEmitter<any>{
+    return this.blockUIInstance.blockUIEvent;
   }
 
   /**

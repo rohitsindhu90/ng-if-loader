@@ -44,6 +44,7 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   //Added New Input Property 
   @Input() loader:boolean=false;
   @Input() customClass:string;
+  @Input() height:string;
   
   className: string;
 

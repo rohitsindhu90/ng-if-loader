@@ -22,11 +22,14 @@ export class BlockUIDirective implements OnInit {
   delayStop: any;
   loader:boolean;
   customClass: string;
+  height:string;
 
   @Input()
   set blockUI(name: any) { this.blockTarget = name; };
   @Input()
   set blockUICustomClass(customClass: any) { this.customClass = customClass; };
+  @Input()
+  set blockUIHeight(height: any) { this.height = height; };
   @Input()
   set blockUILoader(loader: any) { this.loader = loader; };
   @Input()
@@ -72,6 +75,7 @@ export class BlockUIDirective implements OnInit {
           if (this.delayStart) this.blockUIComponentRef.instance.delayStart = this.delayStart;
           if (this.delayStop) this.blockUIComponentRef.instance.delayStop = this.delayStop;
           if (this.customClass) this.blockUIComponentRef.instance.customClass = this.customClass;
+          if (this.height) this.blockUIComponentRef.instance.height= this.height;
           if (this.loader) this.blockUIComponentRef.instance.loader = this.loader;
 
           if (this.template || settings.template)

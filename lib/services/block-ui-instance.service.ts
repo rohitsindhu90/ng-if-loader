@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs';
 import { BlockUIActions } from '../constants/block-ui-actions.constant';
 import { BlockUIDefaultName } from '../constants/block-ui-default-name.constant';
@@ -7,12 +7,15 @@ import { BlockUISettings } from '../models/block-ui-settings.model';
 import { BlockUIEvent } from '../models/block-ui-event.model';
 
 
+
 @Injectable()
 export class BlockUIInstanceService {
   blockUISettings: BlockUISettings | any = {};
   blockUIInstances: any = {};
   private blockUISubject: ReplaySubject<any> = new ReplaySubject();
   private blockUIObservable: Observable<any> = this.blockUISubject.asObservable();
+
+  public blockUIEvent:EventEmitter<any>=new EventEmitter<any>();
 
   constructor() {
     this.blockUIObservable.subscribe(this.blockUIMiddleware.bind(this));
@@ -64,6 +67,7 @@ export class BlockUIInstanceService {
     if (isActive !== null) {
       this.blockUIInstances[name].isActive = isActive;
     }
+    this.blockUIEvent.emit({action:action,isActive:isActive});
   }
 
   private dispatch(subject: ReplaySubject<any>, action: BlockUIActions, name: string = BlockUIDefaultName): Function {

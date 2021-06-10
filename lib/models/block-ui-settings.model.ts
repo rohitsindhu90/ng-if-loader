@@ -6,5 +6,6 @@ export interface BlockUISettings {
   delayStop?: number;
   loader?:boolean;
   customClass?: string;
+  height?:string;
   template?: ComponentRef<{ message?: any }> | any;
 }

@@ -12,13 +12,41 @@ export class DeafultComponent {
   @BlockUI('block-element') elementBlockUI: NgBlockUI;
 
   defaultMessage: string = 'Default Message...';
-  timeout: number = 2000;
+  timeout: number = 200000;
   blockInstances = ['block-element', 'block-element-2', 'block-element-3'];
 
   constructor(
     private blockUIService: BlockUIService
-  ) {}
+  ) {
+    // blockUIService.actionEvent().subscribe((x:any)=>{
+    //   alert(x.action);
+      debugger;
+      let service=this.blockUIService
+    
+    let subject=service.blockUIInstance.blockUISubject;
+    service.blockUIInstance.blockUISubject.subscribe((y:any)=>{
+      console.log(JSON.stringify(y));
+      debugger;
+      let t=y;
+    });
 
+    // });
+  }
+
+  getInstance(){
+    alert('instance');
+    debugger;
+    let service=this.blockUIService
+    // let instances=service.getAllInstances();
+    let subject=service.blockUIInstance.blockUISubject;
+    service.blockUIInstance.blockUISubject.subscribe((x:any)=>{
+      alert(x);
+      debugger;
+      console.log(x);
+      let t=x;
+    })
+
+  }
   blockMain(message: string) {
     this.blockUI.start(message);
 
@@ -37,7 +65,6 @@ export class DeafultComponent {
 
   blockAllElements() {
     this.blockUIService.start(this.blockInstances, 'Loading All');
-
     setTimeout((blockUI) => {
       this.blockUIService.stop(this.blockInstances);
     }, this.timeout);
