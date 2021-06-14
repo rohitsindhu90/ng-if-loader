@@ -11,35 +11,46 @@ import { BlockUIInstanceService } from '../services/block-ui-instance.service';
 
 @Directive({ selector: '[blockUIDisable]' })
 export class BlockUIDisableDirective implements OnInit, OnDestroy {
-   @Input('blockUIDisable') DisableUISetting: DisableModelSettings={
-       className:'disabled'
-   };
+   @Input('blockUIDisable') DisableUISetting: DisableModelSettings;
     // className:string='disabled';
     ActiveCount:number=0;
     subscription=new Subscription();
     blockUISubscription=new Subscription();
     element:any;
     destroy$: Subject<any> = new Subject<any>();
-
-   
+    className:string='disabled';
+    keys:string[]=[];
 
     constructor(private blockUIService: BlockUIInstanceService,
         private renderer: Renderer2,
         private elRef: ElementRef) {
         this.element= this.elRef.nativeElement;
+        
+        
     }
 
     ngOnInit() {
-            let service = this.blockUIService;
-            this.blockUISubscription=service.blockUISubject.subscribe((y: any) => {
-                //Count Active Class
-                this.getActiveInstance();
-                this.toggleDisableClass();
-            });
-        
+        debugger;
+        //Input property Default Values
+        if (this.DisableUISetting) {
+            if (this.DisableUISetting.className) {
+                this.className = this.DisableUISetting.className;
+            }
+            if (this.DisableUISetting.keys) {
+                this.keys = this.DisableUISetting.keys;
+            }
+        }
+
+        let service = this.blockUIService;
+        this.blockUISubscription = service.blockUISubject.subscribe((y: any) => {
+            //Count Active Class
+            this.getActiveInstance();
+            this.toggleDisableClass();
+        });
+
         this.subscription = fromEvent(this.element.parentNode, 'click', { capture: true })
             .subscribe((e: any) => {
-                if (e.target === this.element && this.ActiveCount>0) {
+                if (e.target === this.element && this.ActiveCount > 0) {
                     e.stopPropagation()
                 }
             });
@@ -48,11 +59,11 @@ export class BlockUIDisableDirective implements OnInit, OnDestroy {
     toggleDisableClass(){
         if(this.ActiveCount>0){
         this.element.disabled = true;
-        this.addClass(this.DisableUISetting.className,this.element);
+        this.addClass(this.className,this.element);
         }
         else{
             this.element.disabled = false;
-            this.removeClass(this.DisableUISetting.className,this.element);
+            this.removeClass(this.className,this.element);
         }
 
     }
@@ -72,8 +83,8 @@ export class BlockUIDisableDirective implements OnInit, OnDestroy {
         let count=0;
         let instances=this.blockUIService.blockUIInstances;
         let keys=Object.keys(instances);
-        if(this.DisableUISetting.keys && this.DisableUISetting.keys.length>0){
-          keys=  keys.filter(value => this.DisableUISetting.keys.indexOf(value)>0)
+        if(this.keys && this.keys.length>0){
+          keys=  keys.filter(value => this.keys.indexOf(value)>0)
         }
         if(keys && keys.length>0){
             keys.forEach(x=>{
