@@ -9,7 +9,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "experimentalDecorators": false,
     "sourceMap": false,
     "noEmitHelpers": false,
     "noImplicitAny": false,

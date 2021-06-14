@@ -2,7 +2,6 @@
 
 export const styles = `
 .block-ui-wrapper {
-  display: none;
   position: fixed;
   height: 100%;
   width: 100%;
@@ -18,7 +17,7 @@ export const styles = `
 }
 
 .block-ui-wrapper.active {
-  display: block;
+  
 }
 
 .block-ui-wrapper.block-ui-main {

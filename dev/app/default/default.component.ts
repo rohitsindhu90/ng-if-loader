@@ -33,6 +33,7 @@ export class DeafultComponent {
     // });
   }
 
+  
   getInstance(){
     alert('instance');
     debugger;
@@ -64,6 +65,7 @@ export class DeafultComponent {
   }
 
   blockAllElements() {
+    alert('BlockUI Enabled');
     this.blockUIService.start(this.blockInstances, 'Loading All');
     setTimeout((blockUI) => {
       this.blockUIService.stop(this.blockInstances);

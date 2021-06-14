@@ -10,3 +10,8 @@ export interface BlockUISettings {
   width?:string;
   template?: ComponentRef<{ message?: any }> | any;
 }
+
+export interface DisableModelSettings{
+  keys?:string[];
+  className?:string;
+}

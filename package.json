@@ -1,6 +1,6 @@
 {
   "name": "ng-if-block-ui",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Angular Block UI",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
@@ -32,9 +32,11 @@
     "url": "https://github.com/rohitsindhu90/ng-if-loader/issues"
   },
   "homepage": "https://github.com/rohitsindhu90/ng-if-loader#readme",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@angular/common": "6.0.7",
+    "@angular/animations": "^6.0.7",
     "@angular/compiler": "6.0.7",
     "@angular/compiler-cli": "6.0.7",
     "@angular/core": "6.0.7",

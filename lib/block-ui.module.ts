@@ -6,7 +6,9 @@ import { BlockUIContentComponent } from './components/block-ui-content/block-ui-
 import { BlockUIInstanceService } from './services/block-ui-instance.service';
 import { BlockUIService } from './services/block-ui.service';
 import { BlockUIDirective } from './directives/block-ui.directive';
+import { BlockUIDisableDirective } from './directives/block-ui-disable.directive';
 import { BlockUISettings } from './models/block-ui-settings.model';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const BlockUIServiceInstance = new BlockUIInstanceService();
 
@@ -20,20 +22,24 @@ export function provideInstance(settings: BlockUISettings): any {
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule
   ],
   entryComponents: [
     BlockUIComponent,
-    BlockUIContentComponent
+    BlockUIContentComponent,
+
   ],
   declarations: [
     BlockUIComponent,
     BlockUIDirective,
+    BlockUIDisableDirective,
     BlockUIContentComponent
   ],
   exports: [
     BlockUIComponent,
     BlockUIDirective,
+    BlockUIDisableDirective,
     BlockUIContentComponent
   ]
 })

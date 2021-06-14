@@ -22,12 +22,29 @@ import { BlockUIDefaultName } from '../../constants/block-ui-default-name.consta
 import { styles } from './block-ui-content.component.style';
 import { template } from './block-ui-content.component.template';
 import { BlockUISettings } from '../../models/block-ui-settings.model';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'block-ui-content',
   template: template,
   styles: [styles], // TODO: Find how to bundle styles for npm
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    // Each unique animation requires its own trigger. The first argument of the trigger function is the name
+    trigger('fade',
+    [
+        state('in-active', style({ 'opacity': '0', 'display': 'none' })),
+        state('active', style({  'opacity': '1' })),
+
+        transition('in-active => active', [
+            style({ 'display': 'block' }),
+            animate('0ms ease-in')
+        ]),
+        transition('active => in-active', [
+            animate('500ms ease-out')
+        ])
+    ])
+  ]
 })
 export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy {
   @Input() name: string = BlockUIDefaultName;
@@ -37,6 +54,19 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   @Input('template') templateCmp: any;
   @ViewChild('templateOutlet', { read: ViewContainerRef })
   templateOutlet: ViewContainerRef;
+
+  animationState:string='';
+
+  //To Be Enhanced
+  getAnimationState(){
+   
+    if(this.state.blockCount > 0){
+      return 'active';
+    }
+    else{
+      return 'in-active';
+    }
+  }
 
   state: any = { startTimeout: null, stopTimeout: null, blockCount: 0 };
   //Rohit Sindhu
@@ -160,7 +190,6 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
           }
         }
       }
-
       this.updateInstanceBlockCount();
     }
   }

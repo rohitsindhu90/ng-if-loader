@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BlockUIModule } from 'ng-if-block-ui';
 import { BlockUIRouterModule, BlockUIPreventNavigation } from 'ng-if-block-ui/router';
 import { BlockUIHttpModule } from 'ng-if-block-ui/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BlockElementModule } from './block-element/block-element.module';
 import { BlockTemplateComponent } from './block-template/block-template.component';
@@ -27,8 +28,7 @@ const appRoutes: Routes = [
     BrowserModule,
     BlockElementModule,
     BlockUIModule.forRoot({
-      message: 'Global Default Message',
-      template: BlockTemplateComponent
+      message: 'Global Default Message'
     }),
     BlockUIRouterModule.forRoot(),
     BlockUIHttpModule.forRoot({
@@ -36,6 +36,7 @@ const appRoutes: Routes = [
       blockAllRequestsInProgress: true
     }),
     HttpClientModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [

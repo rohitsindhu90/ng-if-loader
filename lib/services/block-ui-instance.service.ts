@@ -12,7 +12,7 @@ import { BlockUIEvent } from '../models/block-ui-event.model';
 export class BlockUIInstanceService {
   blockUISettings: BlockUISettings | any = {};
   blockUIInstances: any = {};
-  private blockUISubject: ReplaySubject<any> = new ReplaySubject();
+  public blockUISubject: ReplaySubject<any> = new ReplaySubject();
   private blockUIObservable: Observable<any> = this.blockUISubject.asObservable();
 
   public blockUIEvent:EventEmitter<any>=new EventEmitter<any>();
@@ -42,7 +42,7 @@ export class BlockUIInstanceService {
     } as NgBlockUI;
 
     this.blockUIInstances[name] = this.blockUIInstances[name] || blockUI;
-
+    
     return blockUI;
   }
 
