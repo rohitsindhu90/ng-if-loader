@@ -77,14 +77,21 @@ export class BlockUIDisableDirective implements OnInit, OnDestroy {
     removeClass(className: string, element: any) {
         this.renderer.removeClass(element, className);
     }
+    getArraysIntersection(a1,a2){
+    return  a1.filter(function(n) { return a2.indexOf(n) !== -1;});
+    }
 
     //Get Active Instance count based on keys
     getActiveInstance(){
         let count=0;
         let instances=this.blockUIService.blockUIInstances;
         let keys=Object.keys(instances);
-        if(this.keys && this.keys.length>0){
-          keys=  keys.filter(value => this.keys.indexOf(value)>0)
+        if (this.keys && this.keys.length > 0) {
+            let _keys=this.getArraysIntersection(keys,this.keys)
+            // let _keys = keys.filter(value => 
+            //     this.keys.filter(x=>x==value) && this.keys.filter(x=>x==value).length>0
+            //     );
+            keys = _keys;
         }
         if(keys && keys.length>0){
             keys.forEach(x=>{

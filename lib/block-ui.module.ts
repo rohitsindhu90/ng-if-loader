@@ -22,8 +22,7 @@ export function provideInstance(settings: BlockUISettings): any {
 
 @NgModule({
   imports: [
-    CommonModule,
-    BrowserAnimationsModule
+    CommonModule
   ],
   entryComponents: [
     BlockUIComponent,
