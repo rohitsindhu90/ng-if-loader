@@ -4,7 +4,7 @@ import {
     Input, OnDestroy, OnInit, Renderer2,
     TemplateRef, ViewContainerRef
 } from "@angular/core";
-import { DisableModelSettings } from "lib/models/block-ui-settings.model";
+import { DisableModelSettings } from "../models/block-ui-settings.model";
 import { fromEvent, Subject, Subscription } from "rxjs";
 import { BlockUIInstanceService } from '../services/block-ui-instance.service';
 
