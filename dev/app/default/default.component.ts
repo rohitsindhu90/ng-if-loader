@@ -30,6 +30,10 @@ export class DeafultComponent {
       let t=y;
     });
 
+    setTimeout(() => {
+      this.blockUIService.stop(this.blockInstances);
+        }, 5000);
+
     // });
   }
 

@@ -22,6 +22,7 @@ import { BlockUIDefaultName } from '../../constants/block-ui-default-name.consta
       [template]="template"
       [delayStart]="delayStart"
       [delayStop]="delayStop"
+      [defaultEnabled]="defaultEnabled"
     >
     </block-ui-content>
   `,
@@ -38,6 +39,7 @@ export class BlockUIComponent implements OnInit {
   @Input() customClass: string;
   @Input() height: string;
   @Input() width:string;
+  @Input() defaultEnabled:boolean;
 
   @Input() delayStart: number;
   @Input() delayStop: number;
@@ -55,5 +57,6 @@ export class BlockUIComponent implements OnInit {
     this.height = this.height || this.blockUI.blockUISettings.height;
     this.width=this.width||this.blockUI.blockUISettings.width;
     this.loader = this.loader || this.blockUI.blockUISettings.loader;
+    this.defaultEnabled = this.defaultEnabled || this.blockUI.blockUISettings.defaultEnabled;
   }
 }

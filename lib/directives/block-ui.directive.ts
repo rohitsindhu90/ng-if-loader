@@ -24,9 +24,12 @@ export class BlockUIDirective implements OnInit {
   customClass: string;
   height:string;
   width:string;
+  defaultEnabled:boolean;
 
   @Input()
   set blockUI(name: any) { this.blockTarget = name; };
+   @Input()
+  set blockUIDefaultEnabled(defaultEnabled: any) { this.defaultEnabled = defaultEnabled };
   @Input()
   set blockUICustomClass(customClass: any) { this.customClass = customClass; };
   @Input()
@@ -81,6 +84,7 @@ export class BlockUIDirective implements OnInit {
           if (this.height) this.blockUIComponentRef.instance.height= this.height;
           if (this.width) this.blockUIComponentRef.instance.width= this.width;
           if (this.loader) this.blockUIComponentRef.instance.loader = this.loader;
+          if (this.defaultEnabled) this.blockUIComponentRef.instance.defaultEnabled = this.defaultEnabled;
 
           if (this.template || settings.template)
             this.blockUIComponentRef.instance.templateCmp = this.template || settings.template;

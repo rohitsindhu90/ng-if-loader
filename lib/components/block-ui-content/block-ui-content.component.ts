@@ -23,6 +23,7 @@ import { styles } from './block-ui-content.component.style';
 import { template } from './block-ui-content.component.template';
 import { BlockUISettings } from '../../models/block-ui-settings.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { BlockUIService } from '../../services/block-ui.service';
 
 @Component({
   selector: 'block-ui-content',
@@ -54,7 +55,6 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   @Input('template') templateCmp: any;
   @ViewChild('templateOutlet', { read: ViewContainerRef })
   templateOutlet: ViewContainerRef;
-
   animationState:string='';
 
   //To Be Enhanced
@@ -76,7 +76,8 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   @Input() customClass:string;
   @Input() height:string;
   @Input() width:string;
-  
+  @Input() defaultEnabled:any;
+
   className: string;
 
   active: boolean = false;
@@ -88,13 +89,19 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
 
   constructor(
     private blockUI: BlockUIInstanceService,
+    private _blockUIService: BlockUIService,
     private resolver: ComponentFactoryResolver,
     private changeDetectionRef: ChangeDetectorRef
-  ) {}
+  ) {
+
+  }
 
   ngOnInit() {
     this.settings = this.blockUI.getSettings();
     this.blockUISubscription = this.subscribeToBlockUI(this.blockUI.observe());
+    if(this.defaultEnabled==true || this.defaultEnabled=='true' ){
+    this._blockUIService.start(this.name);
+    }
   }
 
   ngAfterViewInit() {
