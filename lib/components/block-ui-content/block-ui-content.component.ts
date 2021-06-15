@@ -11,7 +11,8 @@ import {
   TemplateRef,
   ComponentFactoryResolver,
   ViewContainerRef,
-  ChangeDetectorRef
+  ChangeDetectorRef,
+  Renderer2
 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 
@@ -33,18 +34,18 @@ import { BlockUIService } from '../../services/block-ui.service';
   animations: [
     // Each unique animation requires its own trigger. The first argument of the trigger function is the name
     trigger('fade',
-    [
+      [
         state('in-active', style({ 'opacity': '0', 'display': 'none' })),
-        state('active', style({  'opacity': '1' })),
+        state('active', style({ 'opacity': '1' })),
 
         transition('in-active => active', [
-            style({ 'display': 'block' }),
-            animate('0ms ease-in')
+          style({ 'display': 'block' }),
+          animate('0ms ease-in')
         ]),
         transition('active => in-active', [
-            animate('500ms ease-out')
+          animate('500ms ease-out')
         ])
-    ])
+      ])
   ]
 })
 export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy {
@@ -55,15 +56,15 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   @Input('template') templateCmp: any;
   @ViewChild('templateOutlet', { read: ViewContainerRef })
   templateOutlet: ViewContainerRef;
-  animationState:string='';
+  animationState: string = '';
 
   //To Be Enhanced
-  getAnimationState(){
-   
-    if(this.state.blockCount > 0){
+  getAnimationState() {
+
+    if (this.state.blockCount > 0) {
       return 'active';
     }
-    else{
+    else {
       return 'in-active';
     }
   }
@@ -72,11 +73,12 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   //Rohit Sindhu
   //20210608
   //Added New Input Property 
-  @Input() loader:boolean=false;
-  @Input() customClass:string;
-  @Input() height:string;
-  @Input() width:string;
-  @Input() defaultEnabled:any;
+  @Input() loader: boolean = false;
+  @Input() customClass: string;
+  @Input() height: string;
+  @Input() width: string;
+  @Input() defaultEnabled: any;
+
 
   className: string;
 
@@ -91,7 +93,9 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
     private blockUI: BlockUIInstanceService,
     private _blockUIService: BlockUIService,
     private resolver: ComponentFactoryResolver,
-    private changeDetectionRef: ChangeDetectorRef
+    private changeDetectionRef: ChangeDetectorRef,
+    private renderer: Renderer2,
+    private viewRef: ViewContainerRef
   ) {
 
   }
@@ -99,9 +103,16 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   ngOnInit() {
     this.settings = this.blockUI.getSettings();
     this.blockUISubscription = this.subscribeToBlockUI(this.blockUI.observe());
-    if(this.defaultEnabled==true || this.defaultEnabled=='true' ){
-    this._blockUIService.start(this.name);
+    if (this.defaultEnabled == true || this.defaultEnabled == 'true') {
+      this._blockUIService.start(this.name);
     }
+
+  }
+
+  private isComponentInTemplate(element: any): boolean {
+    let { children } = element || [];
+    children = Array.from(children).reverse();
+    return children.some((el: any) => el.localName === 'block-ui');
   }
 
   ngAfterViewInit() {
@@ -262,8 +273,49 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   private updateInstanceBlockCount() {
     if (this.blockUI.blockUIInstances[this.name]) {
       this.blockUI.blockUIInstances[this.name].blockCount = this.state.blockCount;
+      this.updateParentElement();
     }
   }
+
+
+  private updateParentElement() {
+    if (this.height || this.width) {
+      try {
+
+        const parentElement = this.viewRef.element.nativeElement.offsetParent;
+        debugger;
+        if (parentElement && !this.isComponentInTemplate(parentElement)) {
+          debugger;
+          if (this.state && this.state.blockCount > 0) {
+            if (this.height) {
+              this.renderer.setStyle(parentElement, 'min-height', this.height);
+              this.renderer.setStyle(parentElement, 'transition', 'min-height 0.25s ease-out');
+
+            }
+            if (this.width) {
+              this.renderer.setStyle(parentElement, 'min-width', this.width);
+              this.renderer.setStyle(parentElement, 'transition', 'min-width 0.25s ease-out');
+            }
+          }
+          else {
+            if (this.height) {
+              this.renderer.setStyle(parentElement, 'min-height', 'auto');
+              this.renderer.setStyle(parentElement, 'transition', 'min-height 0.25s ease-in');
+            }
+            if (this.width) {
+              this.renderer.setStyle(parentElement, 'min-width', 'auto');
+              this.renderer.setStyle(parentElement, 'transition', 'min-width 0.25s ease-in');
+            }
+          }
+        }
+      }
+      catch (error) {
+        console.error('ng-if-block-ui:block-ui-content.component', error);
+      }
+    }
+  }
+
+
 
   private detectChanges() {
     if (!this.changeDetectionRef['destroyed']) {
