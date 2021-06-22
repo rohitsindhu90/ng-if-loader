@@ -10,6 +10,7 @@ export interface BlockUISettings {
   width?:string;
   defaultEnabled?:boolean;
   template?: ComponentRef<{ message?: any }> | any;
+  enable?:boolean;
 }
 
 export interface DisableModelSettings{

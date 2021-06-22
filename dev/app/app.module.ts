@@ -28,12 +28,14 @@ const appRoutes: Routes = [
     BrowserModule,
     BlockElementModule,
     BlockUIModule.forRoot({
-      message: 'Global Default Message'
+      message: 'Global Default Message',
+      enable:true
     }),
     BlockUIRouterModule.forRoot(),
     BlockUIHttpModule.forRoot({
       requestFilters: [], // /\/api.github.com\/users\//
-      blockAllRequestsInProgress: true
+      blockAllRequestsInProgress: true,
+      
     }),
     HttpClientModule,
     BrowserAnimationsModule,

@@ -95,7 +95,7 @@ export class BlockUIDisableDirective implements OnInit, OnDestroy {
         }
         if(keys && keys.length>0){
             keys.forEach(x=>{
-                if(instances[x].isActive==true){
+                if(instances[x]==true){
                     count++;
                 }
             });

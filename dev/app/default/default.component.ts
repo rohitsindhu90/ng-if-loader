@@ -13,7 +13,7 @@ export class DeafultComponent {
 
   defaultMessage: string = 'Default Message...';
   timeout: number = 5000;
-  blockInstances = ['block-element', 'block-element-2', 'block-element-3'];
+  blockInstances = [ 'block-element-2', 'block-element-3'];
 
   constructor(
     private blockUIService: BlockUIService
