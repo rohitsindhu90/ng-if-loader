@@ -59,6 +59,7 @@ export class BlockUIService {
   }
 
   private dispatch(target: string | string[] = [], type: string, message?: any) {
+    
     const instances = this.toArray(target);
     instances.forEach(i => this.blockUIInstance.decorate(i)[type](message));
   }

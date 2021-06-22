@@ -52,31 +52,34 @@ export class BlockUIInstanceService {
 
   private blockUIMiddleware({ action, name }: BlockUIEvent): void {
     let isActive: boolean = null;
+      switch (action) {
+        case (BlockUIActions.START):
+          isActive = true;
+          break;
 
-    switch (action) {
-      case (BlockUIActions.START):
-        isActive = true;
-        break;
+        case (BlockUIActions.STOP):
+        case (BlockUIActions.RESET):
+          isActive = false;
+          break;
+      }
 
-      case (BlockUIActions.STOP):
-      case (BlockUIActions.RESET):
-        isActive = false;
-        break;
-    }
+      if (isActive !== null) {
+        this.blockUIInstances[name].isActive = isActive;
+      }
 
-    if (isActive !== null) {
-      this.blockUIInstances[name].isActive = isActive;
-    }
-    this.blockUIEvent.emit({action:action,isActive:isActive});
+      this.blockUIEvent.emit({ action: action, isActive: isActive });
   }
 
   private dispatch(subject: ReplaySubject<any>, action: BlockUIActions, name: string = BlockUIDefaultName): Function {
-    return (message?: any): void => {
-      subject.next({
-        name,
-        action,
-        message
-      });
+    if (this.blockUISettings.enable) {
+      return (message?: any): void => {
+        subject.next({
+          name,
+          action,
+          message
+        });
     };
+    }
+
   }
 }
