@@ -71,14 +71,21 @@ export class BlockUIInstanceService {
   }
 
   private dispatch(subject: ReplaySubject<any>, action: BlockUIActions, name: string = BlockUIDefaultName): Function {
-    if (this.blockUISettings.enable) {
-      return (message?: any): void => {
-        subject.next({
-          name,
-          action,
-          message
-        });
-    };
+    // if (this.blockUISettings && this.blockUISettings.enable) {
+    //   return (message?: any): void => {
+    //     subject.next({
+    //       name,
+    //       action,
+    //       message
+    //     });
+    // };
+    // }
+    return (message?: any): void => {
+      subject.next({
+        name,
+        action:(this.blockUISettings && this.blockUISettings.enable)?action:BlockUIActions.STOP,
+        message
+      });
     }
 
   }
