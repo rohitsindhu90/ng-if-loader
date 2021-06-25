@@ -81,7 +81,7 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
 
 
   className: string;
-
+  enabled:boolean;
   active: boolean = false;
   templateCompRef: ComponentRef<{ message?: any }> | TemplateRef<{}>;
   message: any;
@@ -102,6 +102,7 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
 
   ngOnInit() {
     this.settings = this.blockUI.getSettings();
+    this.enabled=this.settings.enable;
     this.blockUISubscription = this.subscribeToBlockUI(this.blockUI.observe());
     if (this.defaultEnabled == true || this.defaultEnabled == 'true') {
       this._blockUIService.start(this.name);

@@ -83,7 +83,7 @@ export class BlockUIInstanceService {
     return (message?: any): void => {
       subject.next({
         name,
-        action:(this.blockUISettings && this.blockUISettings.enable)?action:BlockUIActions.STOP,
+        action:action,
         message
       });
     }
