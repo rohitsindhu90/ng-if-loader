@@ -280,7 +280,7 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
 
 
   private updateParentElement() {
-    if (this.height || this.width) {
+    if ((this.height || this.width) && this.settings.enable) {
       try {
 
         const parentElement = this.viewRef.element.nativeElement.offsetParent;

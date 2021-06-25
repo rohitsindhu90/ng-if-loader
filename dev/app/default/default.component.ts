@@ -20,13 +20,13 @@ export class DeafultComponent {
   ) {
     // blockUIService.actionEvent().subscribe((x:any)=>{
     //   alert(x.action);
-      debugger;
+      
       let service=this.blockUIService
     
     let subject=service.blockUIInstance.blockUISubject;
     service.blockUIInstance.blockUISubject.subscribe((y:any)=>{
       console.log(JSON.stringify(y));
-      debugger;
+      
       let t=y;
     });
 
@@ -39,14 +39,12 @@ export class DeafultComponent {
 
   
   getInstance(){
-    alert('instance');
-    debugger;
+    
     let service=this.blockUIService
     // let instances=service.getAllInstances();
     let subject=service.blockUIInstance.blockUISubject;
     service.blockUIInstance.blockUISubject.subscribe((x:any)=>{
-      alert(x);
-      debugger;
+    
       console.log(x);
       let t=x;
     })
