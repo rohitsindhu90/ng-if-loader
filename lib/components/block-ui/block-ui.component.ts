@@ -23,6 +23,7 @@ import { BlockUIDefaultName } from '../../constants/block-ui-default-name.consta
       [delayStart]="delayStart"
       [delayStop]="delayStop"
       [defaultEnabled]="defaultEnabled"
+      [fakeLoderForDisableActionButton]="fakeLoderForDisableActionButton"
     >
     </block-ui-content>
   `,
@@ -40,6 +41,7 @@ export class BlockUIComponent implements OnInit {
   @Input() height: string;
   @Input() width:string;
   @Input() defaultEnabled:boolean;
+  @Input() fakeLoderForDisableActionButton:boolean=false;
 
   @Input() delayStart: number;
   @Input() delayStop: number;
@@ -58,5 +60,6 @@ export class BlockUIComponent implements OnInit {
     this.width=this.width||this.blockUI.blockUISettings.width;
     this.loader = this.loader || this.blockUI.blockUISettings.loader;
     this.defaultEnabled = this.defaultEnabled || this.blockUI.blockUISettings.defaultEnabled;
+    this.fakeLoderForDisableActionButton = this.fakeLoderForDisableActionButton || this.blockUI.blockUISettings.fakeLoderForDisableActionButton;
   }
 }
