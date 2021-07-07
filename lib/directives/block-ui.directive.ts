@@ -25,11 +25,14 @@ export class BlockUIDirective implements OnInit {
   height:string;
   width:string;
   defaultEnabled:boolean;
+  fakeLoderForDisableActionButton:boolean;
 
   @Input()
   set blockUI(name: any) { this.blockTarget = name; };
    @Input()
   set blockUIDefaultEnabled(defaultEnabled: any) { this.defaultEnabled = defaultEnabled };
+  @Input()
+  set blockUIFakeLoderForDisableActionButton(fakeLoderForDisableActionButton: any) { this.fakeLoderForDisableActionButton = fakeLoderForDisableActionButton };
   @Input()
   set blockUICustomClass(customClass: any) { this.customClass = customClass; };
   @Input()
@@ -85,6 +88,7 @@ export class BlockUIDirective implements OnInit {
           if (this.width) this.blockUIComponentRef.instance.width= this.width;
           if (this.loader) this.blockUIComponentRef.instance.loader = this.loader;
           if (this.defaultEnabled) this.blockUIComponentRef.instance.defaultEnabled = this.defaultEnabled;
+          if (this.fakeLoderForDisableActionButton) this.blockUIComponentRef.instance.fakeLoderForDisableActionButton = this.fakeLoderForDisableActionButton;
 
           if (this.template || settings.template)
             this.blockUIComponentRef.instance.templateCmp = this.template || settings.template;

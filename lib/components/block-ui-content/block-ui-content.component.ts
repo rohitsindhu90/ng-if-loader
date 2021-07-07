@@ -78,6 +78,7 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   @Input() height: string;
   @Input() width: string;
   @Input() defaultEnabled: any;
+  @Input() fakeLoderForDisableActionButton: any=false;
 
 
   className: string;
@@ -101,6 +102,7 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   }
 
   ngOnInit() {
+    debugger;
     this.settings = this.blockUI.getSettings();
     this.enabled=this.settings.enable;
     this.blockUISubscription = this.subscribeToBlockUI(this.blockUI.observe());
@@ -280,7 +282,7 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
 
 
   private updateParentElement() {
-    if ((this.height || this.width) && this.settings.enable) {
+    if ((this.height || this.width) && this.settings.enable && (this.fakeLoderForDisableActionButton!=true && this.fakeLoderForDisableActionButton!='true')) {
       try {
 
         const parentElement = this.viewRef.element.nativeElement.offsetParent;

@@ -11,6 +11,7 @@ export interface BlockUISettings {
   defaultEnabled?:boolean;
   template?: ComponentRef<{ message?: any }> | any;
   enable?:boolean;
+  fakeLoderForDisableActionButton?:boolean;
 }
 
 export interface DisableModelSettings{

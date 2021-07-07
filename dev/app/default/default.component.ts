@@ -32,7 +32,7 @@ export class DeafultComponent {
 
     setTimeout(() => {
       this.blockUIService.stop(this.blockInstances);
-        }, 5000);
+        }, 10000);
 
     // });
   }
