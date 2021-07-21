@@ -30,7 +30,6 @@ export class BlockUIDisableDirective implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        debugger;
         //Input property Default Values
         if (this.DisableUISetting) {
             if (this.DisableUISetting.className) {
