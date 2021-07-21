@@ -102,7 +102,6 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   }
 
   ngOnInit() {
-    debugger;
     this.settings = this.blockUI.getSettings();
     this.enabled=this.settings.enable;
     this.blockUISubscription = this.subscribeToBlockUI(this.blockUI.observe());
@@ -286,9 +285,7 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
       try {
 
         const parentElement = this.viewRef.element.nativeElement.offsetParent;
-        debugger;
         if (parentElement && !this.isComponentInTemplate(parentElement)) {
-          debugger;
           if (this.state && this.state.blockCount > 0) {
             if (this.height) {
               this.renderer.setStyle(parentElement, 'min-height', this.height);
