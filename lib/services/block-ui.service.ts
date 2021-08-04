@@ -7,7 +7,7 @@ import { BlockUIInstanceService } from './block-ui-instance.service';
 export class BlockUIService {
 
   constructor(
-    private blockUIInstance: BlockUIInstanceService
+    public blockUIInstance: BlockUIInstanceService
   ) {}
 
   /**

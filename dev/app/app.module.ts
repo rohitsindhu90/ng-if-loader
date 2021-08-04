@@ -29,7 +29,7 @@ const appRoutes: Routes = [
     BlockElementModule,
     BlockUIModule.forRoot({
       message: 'Global Default Message',
-      enable:true,
+      enable:false,
       delayStop:10000
     }),
     BlockUIRouterModule.forRoot(),

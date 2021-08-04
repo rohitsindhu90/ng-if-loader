@@ -137,6 +137,10 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
   }
 
   ngAfterViewChecked() {
+    if(this.enabled!=this.settings.enable)
+    {
+      this.enabled=this.settings.enable;
+    }
     this.detectChanges();
   }
 

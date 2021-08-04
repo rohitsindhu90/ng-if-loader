@@ -74,6 +74,15 @@ export class DeafultComponent {
     }, this.timeout);
   }
 
+  enableModule(){
+    debugger;
+    let service=this.blockUIService;
+    this.blockUIService.blockUIInstance.blockUISettings.enable=true;
+    
+
+
+  }
+
   blockUpdate() {
     let messages: string[] = ['Logining In', 'Loading Settings', 'Loading Widgets'],
       i = 0,

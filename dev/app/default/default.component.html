@@ -13,8 +13,11 @@
 </div>
 <div class="controls">
   <button class="button button--default" routerLink="/multi-http">Multi Http Test</button>
+ 
+  <button class="button button--default" (click)="enableModule()" >Enable BlockUI</button>
+
 </div>
 <div *ngFor="let block of blockInstances">
-  <block-element *blockUI="block; message: 'My Component...',customClass:'dark',defaultEnabled:'false',height:'700px',fakeLoderForDisableActionButton:'true'"></block-element>
+  <block-element *blockUI="block; message: 'My Component...',customClass:'dark',defaultEnabled:'false',height:'700px'"></block-element>
 </div>
 

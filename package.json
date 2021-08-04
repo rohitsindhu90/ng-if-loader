@@ -1,6 +1,6 @@
 {
   "name": "ng-if-block-ui",
-  "version": "1.0.17",
+  "version": "1.0.23",
   "description": "Angular Block UI",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
