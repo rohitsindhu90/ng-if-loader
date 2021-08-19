@@ -31,10 +31,11 @@ export class DeafultComponent {
     });
 
     setTimeout(() => {
-      this.blockUIService.stop(this.blockInstances);
+      alert('reset');
+      this.blockUIService.reset(this.blockInstances[0]);
         }, 10000);
 
-    // });
+    //});
   }
 
   
@@ -54,7 +55,7 @@ export class DeafultComponent {
     this.blockUI.start(message);
 
     setTimeout(() => {
-      this.blockUI.stop();
+      // this.blockUI.stop();
     }, this.timeout);
   }
 
@@ -62,7 +63,7 @@ export class DeafultComponent {
     this.elementBlockUI.start();
 
     setTimeout((blockUI) => {
-      this.elementBlockUI.stop();
+      // this.elementBlockUI.stop();
     }, this.timeout);
   }
 
@@ -70,7 +71,7 @@ export class DeafultComponent {
     alert('BlockUI Enabled');
     this.blockUIService.start(this.blockInstances, 'Loading All');
     setTimeout((blockUI) => {
-      this.blockUIService.stop(this.blockInstances);
+      // this.blockUIService.stop(this.blockInstances);
     }, this.timeout);
   }
 
@@ -95,7 +96,7 @@ export class DeafultComponent {
       i++;
 
       if (i > messages.length) {
-        this.elementBlockUI.stop();
+        // this.elementBlockUI.stop();
         clearInterval(interval);
       }
     }, 850);

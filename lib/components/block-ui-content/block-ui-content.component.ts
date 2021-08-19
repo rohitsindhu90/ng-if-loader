@@ -106,7 +106,9 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
     this.enabled=this.settings.enable;
     this.blockUISubscription = this.subscribeToBlockUI(this.blockUI.observe());
     if (this.defaultEnabled == true || this.defaultEnabled == 'true') {
+      if(this._blockUIService.isActive(this.name)!=true){
       this._blockUIService.start(this.name);
+      }
     }
 
   }
@@ -272,11 +274,12 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
 
   private onUnsubscribe(name: string) {
     if (this.blockUISubscription && name === this.name) {
-      this.blockUISubscription.unsubscribe();
+      //this.blockUISubscription.unsubscribe();
     }
   }
 
   private updateInstanceBlockCount() {
+    debugger;
     if (this.blockUI.blockUIInstances[this.name]) {
       this.blockUI.blockUIInstances[this.name].blockCount = this.state.blockCount;
       this.updateParentElement();
@@ -285,9 +288,11 @@ export class BlockUIContentComponent implements OnInit, AfterViewInit, AfterView
 
 
   private updateParentElement() {
+    
     if ((this.height || this.width) && this.settings.enable && (this.fakeLoderForDisableActionButton!=true && this.fakeLoderForDisableActionButton!='true')) {
       try {
 
+        debugger;
         const parentElement = this.viewRef.element.nativeElement.offsetParent;
         if (parentElement && !this.isComponentInTemplate(parentElement)) {
           if (this.state && this.state.blockCount > 0) {
